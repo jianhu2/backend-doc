@@ -15,3 +15,4 @@ ufw allow 443/tcp
   
   证书生成参考：
  -  https://go-acme.github.io/lego/usage/cli/examples/
+ - https://eff-certbot.readthedocs.io/en/stable/using.html#where-are-my-certificates
