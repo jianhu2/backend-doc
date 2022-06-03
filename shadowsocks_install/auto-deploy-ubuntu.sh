@@ -152,7 +152,7 @@ chmod g+s /var/lib/letsencrypt
 
 
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
-sudo systemctl restart nginx
+sudo systemctl start nginx
 
 sudo certbot certonly --agree-tos --email $EMAIL --webroot -w /var/lib/letsencrypt/ -d $DOMAIN
 sudo certbot renew --renew-hook "systemctl reload nginx"
@@ -367,6 +367,13 @@ cat << EOF > /etc/shadowsocks-libev/config.json
 EOF
 
 systemctl restart shadowsocks-libev
+}
+
+function open_firewall_port() {
+apt-get install ufw
+ufw enable
+ufw allow 80/tcp
+ufw allow 443/tcp
 }
 
 yes_or_no "update system?" sys_update
