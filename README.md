@@ -28,3 +28,4 @@ ufw allow 443/tcp
 参考：
  - https://go-acme.github.io/lego/usage/cli/examples/
  - https://eff-certbot.readthedocs.io/en/stable/using.html#where-are-my-certificates
+ - https://support.cloudflare.com/hc/zh-cn/articles/360017421192-Cloudflare-DNS-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94#ichangedmyserveripaddress
