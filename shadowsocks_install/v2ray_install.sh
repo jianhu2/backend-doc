@@ -83,3 +83,15 @@ cat << EOF > /usr/local/etc/v2ray/config.json
 EOF
 sudo systemctl restart v2ray
 }
+
+function yes_or_no
+{
+read -p "$1 (Y/N)" -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    $2
+fi
+}
+
+yes_or_no "install v2ray?" install_v2ray
