@@ -358,11 +358,11 @@ cat << EOF > /etc/shadowsocks-libev/config.json
     "password":"H2Zf8Me3GX",
     "timeout":600,
     "method":"aes-256-gcm",
-    "fast_open":true,
+    "fast_open":false,
     "no_delay": true,
     "workers":4,
     "plugin":"v2ray-plugin",
-    "plugin_opts":"server;fast-open;path=/s;loglevel=none"
+    "plugin_opts":"server;path=/s;loglevel=none"
 }
 EOF
 
