@@ -355,7 +355,7 @@ cat << EOF > /etc/shadowsocks-libev/config.json
     "server_port":10001,
     "local_address": "0.0.0.0",
     "local_port":1080,
-    "password":"H2Zf8Me3GX",
+    "password":"password",
     "timeout":600,
     "method":"aes-256-gcm",
     "fast_open":false,
@@ -389,3 +389,21 @@ yes_or_no "enable nginx https?" enable_nginx_https
 yes_or_no "install v2ray?" install_v2ray
 
 yes_or_no "install shadowsocks?" install_shadowsocks
+
+
+# client 配置
+#{
+#"server":"v1.hujian.xyz",
+#"mode":"tcp_and_udp",
+#"server_port": 443,
+#"local_address":"0.0.0.0",
+#"local_port":1100,
+#"password":"password",
+#"method":"aes-256-gcm",
+#"plugin":"v2ray-plugin",
+#"plugin_opts":"tls;tls;mux=10;host=v1.hujian.xyz;path=/s",
+#"plugin_args": "",
+#"timeout":60,
+#"fast_open":false
+#}
+
