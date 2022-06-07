@@ -23,3 +23,13 @@ replace (
 	github.com/rs/zerolog => github.com/rs/zerolog v1.24.0
 )
 ```
+
+
+## go清理缓存
+```
+go clean -i
+go clean -cache
+go clean -testcache
+go clean -modcache
+
+```
