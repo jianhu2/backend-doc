@@ -82,3 +82,10 @@ ssh-keygen -p
 这里只是删除密码 ssh的pub不会改变。
 Enter file in which the key is (/Users/haoyangruanjian/.ssh/id_rsa):直接点回车，
 Enter new passphrase (empty for no passphrase):也是直接回车不设置密码
+
+
+# 测试与github连接
+ssh -T git@github.com
+
+参考：
+- https://docs.github.com/cn/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
