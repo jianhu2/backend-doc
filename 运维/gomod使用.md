@@ -25,6 +25,10 @@ replace (
 ```
 
 
+##  go.mod的目录下检查版本是否有效：
+
+``` go list -m -json github.com/davecgh/go-spew ```
+
 ## go清理缓存
 ```
 go clean -i

@@ -71,7 +71,8 @@ git rebase -i bd5dbf378*****
 # 重设远程仓库：
 git remote set-url origin git@dev.gitlab.com:go/items.git
 
-
+# 打包标头和标签以便高效的存储库访问
+git pack-refs --all
 
 # git解决Enter passphrase for key ‘/root/.ssh/id_rsa’: 重复输入密码问题
 ``` 
