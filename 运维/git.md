@@ -5,6 +5,7 @@
 
 # 修改配置文件
 
+全局修改 git config --global -e 或者只修改单个项目 vi .git/config
 ```
 [url "ssh://git@dev.gitlab.com/"]
                 insteadOf = https://dev.gitlab.com/
@@ -47,7 +48,7 @@ git push origin --delete branch_name
 
 
 # 创建tag：
-git tag -a rxhf-3.1.3
+git tag -a v1.0.1
 
 # 推送本地标签
 git push origin master --tags
