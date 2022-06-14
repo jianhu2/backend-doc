@@ -49,3 +49,8 @@ docker load --input test.tar
 curl -L https://github.com/docker/compose/releases/download/1.24.0-rc3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
+
+# 运行服务器设置开机重启：
+```cgo
+ docker run -d   --restart=always  cloudflare/cloudflared:2022.5.3 tunnel --no-autoupdate run --token eyJhIjoiNmVmYjhmY2Y5ZTg5NjIxZDk3MjI2NDNkZTU3Yzg1Y2UiLCJ0IjoiYTE2ZDBiYWQtY2E1OS00NmRmLWIyZDMtN2U1ZWQ4NTViZTJiIiwicyI6Ik5qRmtPVFUxT1RJdE5qZzNOaTAwT0RsaUxXSmxOakV0TXpJNU1HRXhObVUyWmpKbSJ9
+```
