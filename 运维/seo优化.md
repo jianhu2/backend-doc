@@ -17,8 +17,13 @@
 
 
 # 辅助分析工具
+  1.提交收录，sitemap站点地图
+## 百度站长
+- https://ziyuan.baidu.com/site/index#/ 
+## google站长
+- https://search.google.com/search-console
 
-Screaming Frog SEO Spider：分析网站关键字收录情况
+分析网站关键字收录情况(Screaming Frog SEO Spider)
 - https://www.screamingfrog.co.uk/seo-spider/
 # 参考
  
