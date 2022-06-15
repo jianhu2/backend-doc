@@ -54,3 +54,12 @@ chmod +x /usr/local/bin/docker-compose
 ```cgo
  docker run -d   --restart=always  cloudflare/cloudflared:2022.5.3 tunnel --no-autoupdate run --token eyJhIjoiNmVmYjhmY2Y5ZTg5NjIxZDk3MjI2NDNkZTU3Yzg1Y2UiLCJ0IjoiYTE2ZDBiYWQtY2E1OS00NmRmLWIyZDMtN2U1ZWQ4NTViZTJiIiwicyI6Ik5qRmtPVFUxT1RJdE5qZzNOaTAwT0RsaUxXSmxOakV0TXpJNU1HRXhObVUyWmpKbSJ9
 ```
+
+
+# hub.docker.com
+To use the access token from your Docker CLI client:
+
+1. Run docker login -u sonocrelease
+
+2. At the password prompt, enter the personal access token.
+   4e802fef-1402-4c42-b0cd-08ebbfed154c
