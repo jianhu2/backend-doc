@@ -93,6 +93,7 @@ chmod g+s /var/lib/letsencrypt
 sudo ln -sf /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
 sudo systemctl restart nginx
 
+# certbot签名证书参考：https://github.com/certbot/certbot
 sudo certbot certonly --agree-tos --email $EMAIL --webroot -w /var/lib/letsencrypt/ -d $DOMAIN
 sudo certbot renew --renew-hook "systemctl reload nginx"
 
