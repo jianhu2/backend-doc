@@ -7,7 +7,7 @@ then
 fi
 
 DOMAIN=$1
-EMAIL=zzlee@sonoc.tw
+EMAIL=jianhu@gmail.com
 
 function sys_upgrade {
     apt update && apt-get upgrade -y
