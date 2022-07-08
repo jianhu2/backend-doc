@@ -38,7 +38,7 @@
 
 ![蜘蛛模拟抓取关键字](../img/蜘蛛模拟抓取-1.png)
 
-示例：
+# 示例：
 * [蜘蛛访问站点权限](./seo-test-data/robots.txt)
 * [站点sitemap地图](./seo-test-data/sitemap.xml)
 
