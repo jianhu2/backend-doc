@@ -7,42 +7,124 @@
 
 ## 步骤2. 进入系统内部执行命令扩展磁盘大小
 ```sh 
-fdisk /dev/sda
-Welcome to fdisk (util-linux 2.23.2).
+root@localhost ~ # df -mh
+Filesystem               Size  Used Avail Use% Mounted on
+devtmpfs                 969M     0  969M   0% /dev
+tmpfs                    980M     0  980M   0% /dev/shm
+tmpfs                    980M  9.9M  970M   2% /run
+tmpfs                    980M     0  980M   0% /sys/fs/cgroup
+/dev/mapper/centos-root   17G   14G  3.3G  81% /
+/dev/sda1               1014M  299M  716M  30% /boot
+overlay                   17G   14G  3.3G  81% /var/lib/docker/overlay2/0971f73c015ca770356f4ba4b30afeaf8a5bab897787d00fb12e976013c816b4/merged
+overlay                   17G   14G  3.3G  81% /var/lib/docker/overlay2/080f5771c97382cba9de40fc04cc449d661831cb6404d1165ba5f9d94ff097a4/merged
+overlay                   17G   14G  3.3G  81% /var/lib/docker/overlay2/418d6d02082ce2c868843e06cf9bbcefc8d854620a779e5d40c9e818ddc9ff8b/merged
+overlay                   17G   14G  3.3G  81% /var/lib/docker/overlay2/1a3310ec1ffe14dc972c46ecc56cae627c66ac6ea22d8ec86a7ee341ab395a3a/merged
+shm                       64M     0   64M   0% /var/lib/docker/containers/89721e8e469f187ee631632a86e158c752ae93b901bdc968567231797e24d6f0/mounts/shm
+shm                       64M     0   64M   0% /var/lib/docker/containers/65e865a368434ff6d6ead1bd3eae5566dc3c75eeb8b747ec6bebc046a6d94d14/mounts/shm
+shm                       64M     0   64M   0% /var/lib/docker/containers/2be6579cd347c2b993e85cd17289dc6205aeb0fa2e566e99893b31c66fc6ea37/mounts/shm
+shm                       64M   16K   64M   1% /var/lib/docker/containers/039aef669459f804f306b710b845c090efcad0a0359cc9aa3428580dc0117b2b/mounts/shm
+tmpfs                    196M     0  196M   0% /run/user/0
 
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+
+root@localhost ~ # fdisk -l
+
+root@localhost ~ # pvcreate /dev/sda3
+  Physical volume "/dev/sda3" successfully created.
+
+root@localhost ~ # vgextend centos  /dev/sda3
+  Volume group "centos" successfully extended
+
+root@localhost ~ # vgs
+  VG     #PV #LV #SN Attr   VSize  VFree
+  centos   2   2   0 wz--n- 48.99g <30.00g
+root@localhost ~ # vgdisplay
+  --- Volume group ---
+  VG Name               centos
+  System ID
+  Format                lvm2
+  Metadata Areas        2
+  Metadata Sequence No  4
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                0
+  Cur LV                2
+  Open LV               2
+  Max PV                0
+  Cur PV                2
+  Act PV                2
+  VG Size               48.99 GiB
+  PE Size               4.00 MiB
+  Total PE              12542
+  Alloc PE / Size       4863 / <19.00 GiB
+  Free  PE / Size       7679 / <30.00 GiB
+  VG UUID               vFfONo-DxPv-pnCQ-lPtz-3gCe-8dqz-dqFywm
+
+root@localhost ~ # pvdisplay
+  --- Physical volume ---
+  PV Name               /dev/sda2
+  VG Name               centos
+  PV Size               <19.00 GiB / not usable 3.00 MiB
+  Allocatable           yes (but full)
+  PE Size               4.00 MiB
+  Total PE              4863
+  Free PE               0
+  Allocated PE          4863
+  PV UUID               tiJXzP-GDDT-o2Nb-M3sZ-LjpH-mJhD-82rx1B
+
+  --- Physical volume ---
+  PV Name               /dev/sda3
+  VG Name               centos
+  PV Size               30.00 GiB / not usable 4.00 MiB
+  Allocatable           yes
+  PE Size               4.00 MiB
+  Total PE              7679
+  Free PE               7679
+  Allocated PE          0
+  PV UUID               0tXB8b-zDVW-f0xz-7zpy-sfhc-A7dh-29te0U
+
+root@localhost ~ # lvextend -L +29.9G /dev/mapper/centos-root
+  Rounding size to boundary between physical extents: 29.90 GiB.
+  Size of logical volume centos/root changed from <17.00 GiB (4351 extents) to <46.90 GiB (12006 extents).
+  Logical volume centos/root successfully resized.
+
+# resize2fs /dev/mapper/centos-root
+resize2fs 1.42.9 (28-Dec-2013)
+resize2fs: Bad magic number in super-block while trying to open /dev/mapper/centos-root
+Couldn't find valid filesystem superblock.
+
+root@localhost ~ # xfs_growfs /dev/mapper/centos-root
+meta-data=/dev/mapper/centos-root isize=512    agcount=4, agsize=1113856 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0 spinodes=0
+data     =                       bsize=4096   blocks=4455424, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal               bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+data blocks changed from 4455424 to 12294144
 
 
-Command (m for help): p
+root@localhost ~ # df -mh
+Filesystem               Size  Used Avail Use% Mounted on
+devtmpfs                 969M     0  969M   0% /dev
+tmpfs                    980M     0  980M   0% /dev/shm
+tmpfs                    980M  9.9M  970M   2% /run
+tmpfs                    980M     0  980M   0% /sys/fs/cgroup
+/dev/mapper/centos-root   47G   14G   34G  30% /
+/dev/sda1               1014M  299M  716M  30% /boot
+overlay                   47G   14G   34G  30% /var/lib/docker/overlay2/0971f73c015ca770356f4ba4b30afeaf8a5bab897787d00fb12e976013c816b4/merged
+overlay                   47G   14G   34G  30% /var/lib/docker/overlay2/080f5771c97382cba9de40fc04cc449d661831cb6404d1165ba5f9d94ff097a4/merged
+overlay                   47G   14G   34G  30% /var/lib/docker/overlay2/418d6d02082ce2c868843e06cf9bbcefc8d854620a779e5d40c9e818ddc9ff8b/merged
+overlay                   47G   14G   34G  30% /var/lib/docker/overlay2/1a3310ec1ffe14dc972c46ecc56cae627c66ac6ea22d8ec86a7ee341ab395a3a/merged
+shm                       64M     0   64M   0% /var/lib/docker/containers/89721e8e469f187ee631632a86e158c752ae93b901bdc968567231797e24d6f0/mounts/shm
+shm                       64M     0   64M   0% /var/lib/docker/containers/65e865a368434ff6d6ead1bd3eae5566dc3c75eeb8b747ec6bebc046a6d94d14/mounts/shm
+shm                       64M     0   64M   0% /var/lib/docker/containers/2be6579cd347c2b993e85cd17289dc6205aeb0fa2e566e99893b31c66fc6ea37/mounts/shm
+shm                       64M   16K   64M   1% /var/lib/docker/containers/039aef669459f804f306b710b845c090efcad0a0359cc9aa3428580dc0117b2b/mounts/shm
+tmpfs                    196M     0  196M   0% /run/user/0
 
-Disk /dev/sda: 53.7 GB, 53687091200 bytes, 104857600 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk label type: dos
-Disk identifier: 0x000b0183
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sda1   *        2048     2099199     1048576   83  Linux
-/dev/sda2         2099200    41943039    19921920   8e  Linux LVM
-/dev/sda3        41943040   104857599    31457280   8e  Linux LVM
-
-Command (m for help): n
-Partition type:
-   p   primary (3 primary, 0 extended, 1 free)
-   e   extended
-Select (default e): p
-Selected partition 4
-No free sectors available
-
-Command (m for help): t
-Partition number (1-3, default 3): 3
-Hex code (type L to list all codes): 8e
-Changed type of partition 'Linux LVM' to 'Linux LVM'
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
 ```
+
+参考：
+- https://blog.csdn.net/chengyuqiang/article/details/59491942
+- https://blog.runm.top/?p=1109
