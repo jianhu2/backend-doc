@@ -1,3 +1,27 @@
+# 指定docker数据存储路径
+* 验证环境：
+   - centos 7.9
+   - Docker version 20.10.10, build b485636
+
+1. 重新docker工作目录
+2. 停止docker   
+3. 将docker目录移到到目标目录
+4. 修改docker.service文件，使用-graph参数指定存储位置
+   - vi /usr/lib/systemd/system/docker.service
+   - ```ExecStart=/usr/bin/dockerd --graph /data/docker```
+5. 重新加载启动docker   
+   ```sh
+    docker info |grep "Docker Root Dir"
+    systemctl stop docker.socket
+    mv  /var/lib/docker /data
+    #  修改docker.service文件，使用-graph参数指定存储位置
+    vi /usr/lib/systemd/system/docker.service
+    ExecStart=/usr/bin/dockerd  --graph /data/docker -H fd:// --containerd=/run/containerd/containerd.sock
+  
+    systemctl daemon-reload
+    systemctl restart docker 
+     ```
+
 # 查看容器网络映射端口
 docker network inspect bridge
 # 进入容器
