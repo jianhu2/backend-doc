@@ -87,3 +87,20 @@ To use the access token from your Docker CLI client:
 
 2. At the password prompt, enter the personal access token.
    4e802fef-1402-4c42-b0cd-08ebbfed154c
+
+
+# 以普通用户运行docker容器
+
+root账户下添加用户：
+``` useradd test
+    passwd test
+```
+
+修改用户可以使用root权限
+```shell
+sudo vi /etc/sudoers
+# 添加行
+root    ALL=(ALL)       ALL
+test    ALL=(ALL)       ALL
+
+```
