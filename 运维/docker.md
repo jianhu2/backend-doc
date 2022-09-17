@@ -104,3 +104,11 @@ root    ALL=(ALL)       ALL
 test    ALL=(ALL)       ALL
 
 ```
+
+将用户加入docker用户组：
+```shell
+su test
+sudo groupadd docker
+sudogpasswd -a test docker
+newgrp docker 
+```
