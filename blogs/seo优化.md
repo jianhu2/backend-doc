@@ -22,22 +22,20 @@
    要看解决了以上3个问题后，后面有没有得到改进。
 
 
-# 2. 辅助分析工具
- 目的：
-1. 提交seo收录，sitemap站点地图; 
+# 2. 解决方案
+目的：
+
+1. 提交seo收录，sitemap站点地图,将robots.t文件和sitemap.xml文件放到网站根目录下，示例文件如下:
+   * [蜘蛛访问站点权限 robots](../运维/seo-test-data/robots.txt)
+   * [站点sitemap地图 sitemap](../运维/seo-test-data/sitemap.xml)
 2. 通过站长工具分析网关排名以及关键字索引
     - [百度站长](https://ziyuan.baidu.com/site/index#/ )
     - [google站长](https://search.google.com/search-console)
 3. 通过模拟器分析网站关键字收录情况  
    - [蜘蛛模拟-Screaming Frog SEO Spider](https://www.screamingfrog.co.uk/seo-spider/)
    - ![蜘蛛模拟抓取关键字](../img/蜘蛛模拟抓取-1.png)
-
-# 示例：
-将robots和sitemap放到网站根目录下，以便引擎能正常收录
-* [蜘蛛访问站点权限 robots](../运维/seo-test-data/robots.txt)
-* [站点sitemap地图 sitemap](../运维/seo-test-data/sitemap.xml)
-
-
+   
+   
 # 3 参考
  
 - [seo优化](../book/SEO教程：搜索引擎优化入门与进阶（第3版）.mobi)
