@@ -1,4 +1,4 @@
-# seo网站搜索优化
+# 1. seo网站搜索优化
 
 搜索排行问题，主要是两方面优化方向：
 * 第一是外链引用
@@ -14,34 +14,30 @@
 3. 在网关title加上name为keywords和description 以及对应的content描述 
   - 示例：
 ```xml
-<meta name="keywords" content="瑞兴恒方,瑞兴,risinghf,LoRaWAN,LoRaWAN module,LoRaWAN gateway,LoRaWAN 解决方案"><meta name="description" content="....">
+<meta name="keywords" content="LoRaWAN,LoRaWAN module,LoRaWAN gateway,LoRaWAN 解决方案"><meta name="description" content="....">
 ```
 
 4. 通过Google/百度站点管理工具分析数据，通过此分析
    官网相关的关键列表、搜索率、点击率等指标在一定时间范围内的变化，一个是看之前是什么状态，另外一个
-   要看解决了这两个问题后，后面有没有得到改进。
+   要看解决了以上3个问题后，后面有没有得到改进。
 
 
-# 辅助分析工具
+# 2. 辅助分析工具
  目的：
- * 1.提交seo收录，sitemap站点地图; 
- * 2.分析网关排名以及关键字
-## 百度站长
-- https://ziyuan.baidu.com/site/index#/ 
-## google站长
-- https://search.google.com/search-console
-![站点关键字排名](../img/google优化-1.png)
-![站点地图](../img/google优化-2.png)
-
-分析网站关键字收录情况(Screaming Frog SEO Spider)
-- https://www.screamingfrog.co.uk/seo-spider/
-
-![蜘蛛模拟抓取关键字](../img/蜘蛛模拟抓取-1.png)
+1. 提交seo收录，sitemap站点地图; 
+2. 通过站长工具分析网关排名以及关键字索引
+    - [百度站长](https://ziyuan.baidu.com/site/index#/ )
+    - [google站长](https://search.google.com/search-console)
+3. 通过模拟器分析网站关键字收录情况  
+   - [蜘蛛模拟-Screaming Frog SEO Spider](https://www.screamingfrog.co.uk/seo-spider/)
+   - ![蜘蛛模拟抓取关键字](../img/蜘蛛模拟抓取-1.png)
 
 # 示例：
-* [蜘蛛访问站点权限](../运维/seo-test-data/robots.txt)
-* [站点sitemap地图](../运维/seo-test-data/sitemap.xml)
+将robots和sitemap放到网站根目录下，以便引擎能正常收录
+* [蜘蛛访问站点权限 robots](../运维/seo-test-data/robots.txt)
+* [站点sitemap地图 sitemap](../运维/seo-test-data/sitemap.xml)
 
-# 参考
+
+# 3 参考
  
 - [seo优化](../book/SEO教程：搜索引擎优化入门与进阶（第3版）.mobi)
