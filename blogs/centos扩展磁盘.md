@@ -1,11 +1,31 @@
-# centos 扩展磁盘分区
+# 1. centos 扩展磁盘分区
 
-* 环境：vmware 
-* 系统：centos 7.9
+* 1.1 系统环境
+  - vmware
+  -  centos 7.9
 
-## 步骤1.关机状态下在设置-硬盘-扩展-选择硬盘大小
 
-## 步骤2. 进入系统内部执行命令扩展磁盘大小
+# 2.扩展步骤
+## 2.1 步骤一
+
+  关机状态下在设置->硬盘->扩展->选择硬盘大小; 我这里选择扩展到50G
+
+## 2.2 步骤二
+
+- 进入系统内部执行命令扩展磁盘大小，主要是创建逻辑卷(PVC)/物理卷(PV),从逻辑卷(LV)映射到物理卷(PV):
+  ```shell
+  df -mh   
+  fdisk -l
+  pvcreate /dev/sda3
+  vgextend centos  /dev/sda3
+  vgs
+  pvdisplay
+  lvextend -L +29.9G /dev/mapper/centos-root
+  xfs_growfs /dev/mapper/centos-root
+  df -mh
+    ``` 
+    
+### 2.2.1 执行扩展示例
 ```sh 
 root@localhost ~ # df -mh
 Filesystem               Size  Used Avail Use% Mounted on
@@ -125,6 +145,6 @@ tmpfs                    196M     0  196M   0% /run/user/0
 
 ```
 
-参考：
+## 3.参考：
 - https://blog.csdn.net/chengyuqiang/article/details/59491942
 - https://blog.runm.top/?p=1109
