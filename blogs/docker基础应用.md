@@ -5,15 +5,13 @@
     
 ## 1.2 设置docker工作目录：
 
-1. 停止docker服务   
-2. 修改docker.service文件，使用-graph参数指定存储位置
-  ``` 
-   vi /usr/lib/systemd/system/docker.service
-   
-   ExecStart=/usr/bin/dockerd --graph /data/docker 
-  ```
-   
-3. 查看docker数据存储目录，移动源(旧)数据到新的docker root目录：
+1. 查看docker配置文件root目录
+      ``` 
+     [root@localhost ~]# cat /usr/lib/systemd/system/docker.service |grep "ExecStart"
+     ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+      ```
+2. 停止正在运行的docker镜像以及docker服务 
+3. 查看docker实际的数据存储目录，移动源(旧)数据到新的docker root目录：
    ```sh
    docker info |grep "Docker Root Dir"
    systemctl stop docker.socket
