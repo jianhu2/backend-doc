@@ -24,6 +24,10 @@ SELINUX=enforcing
 SELINUX=disabled
 ```
 
+## 2.0.3 重复服务器以上修改生效
+```shell
+reboot 
+```
 
 ## 2.1 移动文件到目标服务器并执行tar命令解压，如：
 ```
