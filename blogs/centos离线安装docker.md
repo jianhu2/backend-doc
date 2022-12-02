@@ -41,7 +41,8 @@ touch docker.service
 ```
 
 ## 2.4 编辑docker.service文件,将以下内容复制到docker.service文件中，如下
-注：以下内容中 --insecure-registry=192.168.0.15 此处改为你自己服务器ip。
+注1：以下内容中 --insecure-registry=192.168.0.15 此处改为你自己服务器ip。 或者不填写也可以;
+注2：以下内容中 -graph /data/docker 是指定docker root路径
 ```shell
 vi docker.service
 
@@ -57,6 +58,8 @@ Type=notify
 # exists and systemd currently does not support the cgroup feature set required
 # for containers run by docker
 ExecStart=/usr/bin/dockerd --selinux-enabled=false --insecure-registry=192.168.1.15
+#ExecStart=/usr/bin/dockerd  --graph /data/docker -H fd:// --containerd=/run/containerd/containerd.sock
+
 ExecReload=/bin/kill -s HUP $MAINPID
 # Having non-zero Limit*s causes performance problems due to accounting overhead
 # in the kernel. We recommend using cgroups to do container-local accounting.
