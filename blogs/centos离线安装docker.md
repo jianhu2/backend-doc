@@ -147,3 +147,20 @@ docker-compose version
 ``` 
 systemctl status docker 
 ```
+
+
+# 5. docker 配置
+
+docker 配置路径不在路径1就在路径2
+## 5.1 docker 配置路径1
+
+```shell
+  /usr/lib/systemd/system/docker.service
+```
+
+
+## 5.2 docker 配置路径2
+```shell
+/etc/systemd/system/docker.service
+```
+
