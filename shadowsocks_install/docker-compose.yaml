@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  shadowsocks:
+    container_name: shadowsocks
+    image: gists/shadowsocks-libev
+    environment:
+      - PASSWORD=RtajC@14mF&Km
+      - METHOD=aes-128-gcm
+      - SERVER_PORT=18388
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      overlay:
+    restart: always
+
+  v2ray-plugin:
+    container_name: v2ray-plugin
+    image: gists/v2ray-plugin
+    ports:
+      - "443:443/tcp"
+    volumes:
+      - ./tls/tls.crt:/etc/tls/tls.crt
+      - ./tls/tls.key:/etc/tls/tls.key
+      - /etc/localtime:/etc/localtime:ro
+    command: v2ray-plugin -server -localAddr 0.0.0.0 -localPort 443 -remoteAddr shadowsocks -remotePort 18388 -mode websocket -mux=1 -tls -host=domain -cert=/etc/tls/tls.crt -key=/etc/tls/tls.key
+    depends_on:
+      - shadowsocks
+    networks:
+      overlay:
+    restart: always
+
+networks:
+  overlay:
+    driver: bridge

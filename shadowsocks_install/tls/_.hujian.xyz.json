@@ -1,0 +1,5 @@
+{
+	"domain": "*.hujian.xyz",
+	"certUrl": "https://acme-v02.api.letsencrypt.org/acme/cert/035e0121a99b4bf2807bf36a80af18b03b53",
+	"certStableUrl": "https://acme-v02.api.letsencrypt.org/acme/cert/035e0121a99b4bf2807bf36a80af18b03b53"
+}
