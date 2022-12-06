@@ -73,6 +73,13 @@ docker logs -f --tail 10 f7255fec27e5 2>&1 |grep "error" -C 10
 ## 2.9 对已经启动的容器设置开机自启动：
 docker update --restart=always 你的镜像名称
 
+## 2.10 docker 镜像内复制文件到宿主机上
+
+docker cp iotsquare:/etc/iotsquare/iotsquare.toml .
+
+## 2.11  宿主机上文件复制到 docker 镜像内
+
+docker cp iotsquare.toml iotsquare:/home
 
 ## 2.10 docker 保存镜像
 
