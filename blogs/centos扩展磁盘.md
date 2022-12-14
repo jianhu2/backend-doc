@@ -1,9 +1,13 @@
 # 1. centos 扩展磁盘分区
 
-* 1.1 系统环境
+* 1.1 系统环境1
   - vmware
   -  centos 7.9
 
+* 1.1 系统环境2
+  - aliyun
+  - CentOS Linux release 7.7.1908 (Core)
+   
 
 # 2.扩展步骤
 ## 2.1 步骤一
@@ -15,15 +19,25 @@
 - 进入系统内部执行命令扩展磁盘大小，主要是创建逻辑卷(PVC)/物理卷(PV),从逻辑卷(LV)映射到物理卷(PV):
   ```shell
   df -mh   
+  lsblk -l   // 查询系统磁盘挂载目录
   fdisk -l
   pvcreate /dev/sda3
   vgextend centos  /dev/sda3
-  vgs
-  pvdisplay
-  lvextend -L +29.9G /dev/mapper/centos-root
+  vgs          //  返回卷组的属性
+  pvdisplay    //  查看物理卷
+  vgdisplay    //  查看逻辑卷
+  lvdisplay    //  查看逻辑卷状态
+  lvextend -L +156G /dev/test_vg/test_lv
   xfs_growfs /dev/mapper/centos-root
   df -mh
     ``` 
+ - 系统重启更新重新挂载磁盘卷  
+```shell
+lvdisplay    //  查看逻辑卷状态
+vgchange -a y test_vg  // 重新激活逻辑卷组
+mount /dev/test_vg/test_lv /data  // 重新挂载逻辑卷到指定目录
+
+```
     
 ### 2.2.1 执行扩展示例
 ```sh 
