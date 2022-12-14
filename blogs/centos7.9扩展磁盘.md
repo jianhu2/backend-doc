@@ -4,11 +4,6 @@
   - vmware
   -  centos 7.9
 
-* 1.1 系统环境2
-  - aliyun
-  - CentOS Linux release 7.7.1908 (Core)
-   
-
 # 2.扩展步骤
 ## 2.1 步骤一
 
