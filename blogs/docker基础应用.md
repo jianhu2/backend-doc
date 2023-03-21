@@ -17,11 +17,23 @@
    systemctl stop docker.socket
    mv  /var/lib/docker /data
    ```
-4. 修改docker.service文件，使用-graph参数指定存储位置
+4. docker指定data存储位置
+   配置注意事项
+- 1：以下内容中 --insecure-registry=192.168.0.15 此处改为你自己服务器ip。 或者不填写也可以;
+- 2：以下内容中 -graph /data/docker 是指定docker root路径
+- 3：Docker version 23.0.0, build e92dd87 docker 23.0.0版本指定docker root路径 --data-root  /data/docker 
+  
+20.10.10 配置root路径 --graph：
    ```  
    vi /usr/lib/systemd/system/docker.service
    ExecStart=/usr/bin/dockerd  --graph /data/docker -H fd:// --containerd=/run/containerd/containerd.sock
    ```
+23.0.0 以及以后的版本配置root路径 -data-root：
+   ```  
+   vi /usr/lib/systemd/system/docker.service
+   ExecStart=/usr/bin/dockerd   --data-root  /data/docker -H fd:// --containerd=/run/containerd/containerd.sock
+   ```  
+
 5. 重启docker 生效
     ```
     systemctl daemon-reload
