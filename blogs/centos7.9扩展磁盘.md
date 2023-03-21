@@ -22,9 +22,10 @@
   pvdisplay    //  查看物理卷
   vgdisplay    //  查看逻辑卷
   lvdisplay    //  查看逻辑卷状态
-  lvextend -L +156G /dev/test_vg/test_lv
-  xfs_growfs /dev/mapper/centos-root
-  df -mh
+  lvextend -L +50G /dev/test_vg/test_lv  // 分配指定大小
+  lvextend -l +100%FREE /dev/centos/root  // 分配100的剩余空间
+  xfs_growfs /dev/mapper/centos-root      // 刷新根分区生效
+  df -mh          // 查询磁盘
     ``` 
  - 系统重启更新重新挂载磁盘卷  
 ```shell
