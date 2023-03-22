@@ -6,10 +6,10 @@ U盘安装引导依赖2选1,建议选Rufus：
         - https://github.com/balena-io/etcher/releases/download/v1.18.4/balenaEtcher-Setup-1.18.4.exe
  - [U盘引导依赖-Rufus](https://github.com/pbatard/rufus/releases/download/v3.21/rufus-3.21.exe)   
 
-下载ubuntu镜像2选1，建议选择官方，如果下载速度慢则选择aliyun：
+下载ubuntu镜像选择对应的系统架构版本，建议选择官方，如果下载速度慢则选择aliyun：
 -  [官方下载ubuntu22.04桌面版本](https://ubuntu.com/download/desktop/thank-you?version=22.04.2&architecture=amd64)
 -  [阿里云镜像源ubuntu22.04桌面版本](https://mirrors.aliyun.com/ubuntu-releases/22.04/ubuntu-22.04.2-desktop-amd64.iso?spm=a2c6h.25603864.0.0.595f45f8lUUhYO)
-
+-  [ubuntu-arm架构镜像源](https://cdimage.ubuntu.com/releases/)
 # 2.U盘制作安装引导
  1. 将下载好的rufus和ubuntu22.04镜像放到U盘中
  2. 执行rufus二进制文件，按步骤执行：
