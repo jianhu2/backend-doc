@@ -112,7 +112,19 @@ sudo gitlab-rake gitlab:backup:restore BACKUP=1644308851_2022_02_08_13.3.5
 gitlab: sudo gitlab-ctl start
 ```
 
-# 4.参考链接：
- - [gitlab升级降级操作步骤](https://docs.gitlab.cn/jh/update/package/downgrade.html)
+# 4. 升级gitlab版本
+[查看可用的版本](https://packages.gitlab.com/gitlab/gitlab-ce)
+```
+wget --content-disposition https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/jammy/gitlab-ce_15.9.8-ce.0_amd64.deb/download.deb
+// 安装
+dpkg -i ~/gitlab-ce_15.9.8-ce.0_amd64.deb
+
+// 重启
+gitlab-ctl restart
+gitlab-ctl reconfigure
+```
+
+# 5.参考链接：
+ - [gitlab升级降级操作步骤](https://docs.gitlab.com/ee/update/index.html#upgrade-paths)
  - [gitlab版本发布](https://packages.gitlab.com/gitlab/gitlab-ce)
- - [gitlab数据迁移恢复不住](https://blog.csdn.net/m0_55470263/article/details/122838039)
+ - [gitlab数据迁移恢复](https://blog.csdn.net/m0_55470263/article/details/122838039)
