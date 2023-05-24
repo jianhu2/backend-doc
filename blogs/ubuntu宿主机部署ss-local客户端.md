@@ -1,14 +1,14 @@
 # shadowsocks-libev基于ubuntu宿主机部署ss-local客户端.md
 
 # 1. 安装
-##   准备环境：
+## 1.1 准备环境：
   - Linux ubuntu 6.2.0-20-generic ubuntu  2023-04 amd64
   -  基于ubuntu宿主机安装 shadowsocks-libev和v2ray-plugin
 ## 1.2  安装shadowsocks-libev：
      sudo apt install shadowsocks-libev
 ## 1.3   安装v2ray-plugin
 
-```shell
+``` shell
 wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.2/v2ray-plugin-linux-amd64-v1.3.2.tar.gz
 tar -zxvf v2ray-plugin-linux-amd64-v1.3.2.tar.gz     
 mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
