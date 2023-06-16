@@ -139,6 +139,23 @@ curl -L https://github.com/docker/compose/releases/download/1.24.0-rc3/docker-co
 chmod +x /usr/local/bin/docker-compose
 ```
 
-# 6 参考链接
+# 6. docker 配置代理
+### 1. 修改配置
+$  systemctl edit docker.service
+```
+[Service]
+Environment="HTTP_PROXY=http://192.168.159.132:8123"
+Environment="HTTPS_PROXY=http://192.168.159.132:8123"
+Environment="NO_PROXY=localhost,127.0.0.1"
+```
+
+### 2. 显示配置结果：
+
+```systemctl show --property Environment docker.service ```
+
+###  3. 重新启动服务
+``` systemctl restart docker.service```
+
+#  参考链接
 - [Docker基础技术-陈浩](https://coolshell.cn/articles/17010.html)
 - [Docker 中文指南](https://www.widuu.com/chinese_docker/userguide/dockerhub.html)
