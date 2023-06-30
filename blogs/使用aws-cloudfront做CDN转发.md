@@ -2,7 +2,6 @@
 环境:
  - 域名一个
  - aws cloudfront服务
- - aws ec2安装v2ray服务
 
 
 ## 数据转发流程
