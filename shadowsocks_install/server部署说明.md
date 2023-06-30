@@ -73,7 +73,16 @@ lego --email "xx@gmail.com" --dns cloudflare --domains "*.domain.com" run
 2. cloudfront配置回源地址B.example.com
 3. cloudfront配置源请求策略 ```Managed-AllViewerExceptHostHeader```
 
-# 5. 参考文档
+
+
+# 5. 总结
+总结下来需要掌握的技术点：
+1. docker、docker-compose的安装和简单使用
+2. 域名管理
+3. CDN配置
+4. https证书签发
+
+# 6. 参考文档
 - [CloudFront内容交付流程](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html)
 - [CloudFront配置说明-源请求参考文档](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html)
 - [使用lego手动生成tls证书参数文档](https://go-acme.github.io/lego/dns/)
