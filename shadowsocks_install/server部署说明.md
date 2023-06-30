@@ -42,7 +42,7 @@
    docker-compose pull   
  ```
 
-4. 生成https证书，这里示例使用loge的方式生成https证书，生成的证书路径默认在执行命令的当前目录```.lego/certificates/```
+4. 生成https证书，这里示例使用lego的方式生成https证书，生成的证书路径默认在执行命令的当前目录```.lego/certificates/```
 ```shell
 CLOUDFLARE_EMAIL="xx@gmail.com" 
 CLOUDFLARE_API_KEY="域名管理api KEY (for dns api key)" 
@@ -77,3 +77,5 @@ lego --email "xx@gmail.com" --dns cloudflare --domains "*.domain.com" run
 - [CloudFront内容交付流程](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html)
 - [CloudFront配置说明-源请求参考文档](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html)
 - [使用lego手动生成tls证书参数文档](https://go-acme.github.io/lego/dns/)
+
+
