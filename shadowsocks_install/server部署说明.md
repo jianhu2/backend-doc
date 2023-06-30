@@ -42,7 +42,7 @@
    docker-compose pull   
  ```
 
-4. 使用lego生成https证书，生成的证书路径默认在执行命令的当前目录```.lego/certificates/```
+4. 生成https证书，这里示例使用loge的方式生成https证书，生成的证书路径默认在执行命令的当前目录```.lego/certificates/```
 ```shell
 CLOUDFLARE_EMAIL="xx@gmail.com" 
 CLOUDFLARE_API_KEY="域名管理api KEY (for dns api key)" 
