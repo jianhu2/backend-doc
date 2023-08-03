@@ -49,10 +49,16 @@ curl --socks5 127.0.0.1:1080 https://www.google.com  // 测试是否能访问goo
 ```
 # 3. 配置http_proxy：
 v2ray-plugs是用的socks5协议，所以本地走代理的话需要配置http_proxy=socks5
-## 3.1 临时配置http_proxy
+## 3.1.1 临时配置http_proxy---socks5方式
 ```
 export http_proxy=socks5://127.0.0.1:1080
 export https_proxy=$http_proxy
+```
+
+## 3.1.2 临时配置http_proxy---http方式
+```
+export http_proxy=http://192.168.159.132:8123
+export https_proxy=https://192.168.159.132:8123
 ```
 
 ## 3.2 永久配置http_proxy
