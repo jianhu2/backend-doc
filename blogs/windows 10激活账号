@@ -1,0 +1,7 @@
+打开文件： C:\Windows\System32\cmd.exe
+以管理员权限运行cmd
+执行：slmgr.vbs /upk  删除原来的激活码
+执行：slmgr /ipk  J2WWN-Q4338-3GFW9-BWQVK-MG9TT  #激活码地址：https://zhuanlan.zhihu.com/p/534116690（在里面挑一个）
+执行：slmgr /skms kms.03k.org  指定服务器地址
+执行：slmgr /ato  开始激活
+  
